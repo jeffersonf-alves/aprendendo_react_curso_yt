@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.querySelector('#root');
+
+        class ComNome extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state ={ 
+                    nome: this.props.nome_inicio
+                };
+                // binding
+                this.cmd_click = this.cmd_click.bind(this);
+            }
+            
+            
+            cmd_click() {
+                this.setState({nome: this.props.nome_fim})
+            }
+
+            render() {
+                return(<div>
+                    <p>Nome: {this.state.nome} </p>
+                    <button onClick={this.cmd_click}>Alterar</button>    
+                </div>)
+            }
+            
+        }
+
+        class App extends React.Component {
+            render() {
+                return(
+                    <div>
+                        <h1>Exercicio</h1>
+                        <hr/>
+                        <ComNome nome_inicio="João" nome_fim="ribeiro"/>
+                        <ComNome nome_inicio="Jefferson" nome_fim="Alves"/>
+                        <ComNome nome_inicio="Paulo" nome_fim="Pedro"/>
+                    </div>
+                )
+            }
+        }
+        
+
+        ReactDOM.render(<App/>, root);
+    </script>
+</body>
+</html>
