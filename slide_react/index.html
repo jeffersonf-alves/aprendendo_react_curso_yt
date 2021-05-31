@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    .overflow {
+        overflow-x: scroll;
+    }
+    .tamanho {
+        width: 80rem;
+    }
+</style>
+<body>
+    
+    <div id="root"></div>
+   
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://kit.fontawesome.com/342b18ed52.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+    const root = document.querySelector('#root');
+        
+        class Direction extends React.Component {
+            render() {
+                return (
+                    <div className="d-flex align-items-center">
+                        <i class={this.props.icon}></i>
+                    </div>
+                )
+            }
+        }
+        
+        class Card extends React.Component {
+            render() {
+                return (
+                    <div className="card" style={{width: "18rem"}}>
+                    <img src={this.props.img} className="card-img-top" alt=""></img>
+                    <div className="card-body">
+                        <h5 className="card-title">Card title</h5>
+                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                    </div>
+                    </div>
+                    
+                )
+            }
+        }
+        class Slider extends React.Component {
+            render() {
+                return (
+                   <div className="d-flex justify-content-around tamanho overflow">
+                        <Card img="img/imagem1.jpg"/>
+                        <Card img="img/imagem2.jpg"/>
+                        <Card img="img/imagem3.jpg"/>
+                    </div>
+                )
+            }
+        }
+
+        class Container extends React.Component {
+            render() {
+                return (
+                    <div className="container p-5 d-flex justify-content-around bg-dark ">
+                        <Direction icon="fas fa-chevron-left text-white"/>
+                            <Slider/>
+                        <Direction icon="fas fa-chevron-right text-white"/>
+                    </div>
+                )
+            }
+        }
+
+
+    ReactDOM.render(<Container/>, root);
+    </script>
+</body>
+</html>

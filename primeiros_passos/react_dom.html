@@ -16,17 +16,17 @@
     <script type="text/babel">
         const root = document.querySelector('#root');
 
-        class MeuComponente extends React.Component {
-            render() {
-                return (
+            function Tempo() {
+                const conteudo = (
                     <div>
-                        <h1>{this.props.name}</h1>
+                        <h3>Tempo atual</h3>
+                        <p>Estamos na seguinte hora: {new Date().toLocaleTimeString()}</p>
                     </div>
                 )
+                ReactDOM.render(conteudo, root);
             }
-        }
+            setInterval(Tempo, 1000);
 
-        ReactDOM.render(<MeuComponente name="José"/>, root);
     </script>
 </body>
 </html>

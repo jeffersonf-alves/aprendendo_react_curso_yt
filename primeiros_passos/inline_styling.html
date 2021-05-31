@@ -15,18 +15,17 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
         const root = document.querySelector('#root');
-
-        class MeuComponente extends React.Component {
-            render() {
-                return (
-                    <div>
-                        <h1>{this.props.name}</h1>
-                    </div>
-                )
-            }
+        // Usando style inline
+        function MeuComponent() {
+            return(
+                <div>
+                    <p style={{backgroundColor:"blue", padding:"5px", color:"white"}}>Olaa meu chapa</p>
+                </div>
+            )
         }
+        
 
-        ReactDOM.render(<MeuComponente name="José"/>, root);
+        ReactDOM.render(<MeuComponent name="Jefferson"></MeuComponent>, root);
     </script>
 </body>
 </html>
